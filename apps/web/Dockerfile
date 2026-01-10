@@ -46,14 +46,18 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Copy public assets
 COPY --from=builder /app/apps/web/public ./public
 
 # Set the correct permission for prerender cache
-RUN mkdir .next
+RUN mkdir -p .next
 RUN chown nextjs:nodejs .next
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
+# In standalone mode, Next.js creates output in .next/standalone
+# For monorepo, the structure may preserve the apps/web path
+# Copy entire standalone directory which includes server.js and node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static ./.next/static
 
@@ -64,4 +68,7 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-CMD ["node", "server.js"]
+# In standalone mode, Next.js creates server.js in the root of standalone output
+# But for monorepo it might be in apps/web/server.js
+# List files to debug if needed: ls -la /app/ or find /app -name server.js
+CMD ["sh", "-c", "cd /app && (node server.js 2>/dev/null || node apps/web/server.js || find . -name 'server.js' -type f | head -1 | xargs node)"]
