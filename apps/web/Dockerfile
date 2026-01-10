@@ -49,17 +49,19 @@ RUN adduser --system --uid 1001 nextjs
 # Copy public assets
 COPY --from=builder /app/apps/web/public ./public
 
-# Set the correct permission for prerender cache
-RUN mkdir -p .next
-RUN chown nextjs:nodejs .next
-
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 # In standalone mode, Next.js creates output in .next/standalone
-# For monorepo, the structure may preserve the apps/web path
 # Copy entire standalone directory which includes server.js and node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
+
+# Copy static files - they must be accessible as .next/static relative to server.js
+# In standalone mode for monorepo, server.js may be in apps/web/ subdirectory
+# Copy static to both root .next and potential apps/web/.next locations
+RUN mkdir -p .next apps/web/.next
 COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
+RUN chown -R nextjs:nodejs .next apps/web/.next 2>/dev/null || true
 
 USER nextjs
 
@@ -69,6 +71,6 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
 # In standalone mode, Next.js creates server.js in the root of standalone output
-# But for monorepo it might be in apps/web/server.js
-# List files to debug if needed: ls -la /app/ or find /app -name server.js
-CMD ["sh", "-c", "cd /app && (node server.js 2>/dev/null || node apps/web/server.js || find . -name 'server.js' -type f | head -1 | xargs node)"]
+# For monorepo it might be in apps/web/server.js  
+# Find server.js and run it from its directory so .next/static is accessible
+CMD ["sh", "-c", "cd /app && SERVER=$(find . -name 'server.js' -type f -not -path '*/node_modules/*' | head -1) && if [ -z \"$SERVER\" ]; then echo 'Error: server.js not found'; exit 1; fi && cd \"$(dirname \"$SERVER\")\" && node \"$(basename \"$SERVER\")\""]
