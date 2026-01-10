@@ -1,0 +1,17 @@
+node_modules
+.next
+.git
+.gitignore
+README.md
+.env*.local
+.vercel
+dist
+build
+.DS_Store
+*.log
+*.tsbuildinfo
+.github
+GITHUB_SETUP.md
+QUICKSTART.md
+docker-compose.yml
+packages
