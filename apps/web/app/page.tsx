@@ -96,13 +96,6 @@ export default function Home() {
               </span>
             </a>
           </div>
-
-          {/* Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 float-animation">
-            <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-2">
-              <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" />
-            </div>
-          </div>
         </div>
       </section>
 
