@@ -35,9 +35,9 @@ export default function Home() {
       color: 'from-purple-500 to-pink-500',
     },
     {
-      titleKey: 'design',
-      descKey: 'designDesc',
-      color: 'from-orange-500 to-red-500',
+      titleKey: 'languages',
+      descKey: 'languagesDesc',
+      color: 'from-green-500 to-emerald-500',
     },
   ];
 
