@@ -18,6 +18,16 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Voknil",
   description: "Личная страничка Voknil - проекты, идеи и работы | Personal page Voknil - projects, ideas and work",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
 };
 
 export default function RootLayout({
