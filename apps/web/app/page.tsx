@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from './contexts/LanguageContext';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import ConwayGameOfLife from './components/ConwayGameOfLife';
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -45,6 +46,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative overflow-hidden">
+      {/* Игра "Жизнь" Конвея в фоне */}
+      <ConwayGameOfLife />
+      
       <LanguageSwitcher />
       
       {/* Анимированный фон с градиентами */}
@@ -63,38 +67,42 @@ export default function Home() {
           <div className="absolute bottom-1/4 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" />
         </div>
 
-        <div className={`max-w-5xl mx-auto text-center relative z-10 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold mb-6 leading-tight font-display">
-            <span className="animated-text-gradient block">Voknil</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-4 font-light">
-            {t('hero.subtitle')}
-          </p>
-          
-          <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed whitespace-pre-line">
-            {t('hero.description')}
-          </p>
-          
-          <div className="flex flex-wrap gap-4 justify-center items-center">
-            <a
-              href="#about"
-              className="group px-8 py-4 rounded-full glass hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50"
-            >
-              <span className="flex items-center gap-2 text-lg font-medium">
-                {t('hero.learnMore')}
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </span>
-            </a>
-            
-            <a
-              href="#contact"
-              className="group px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/50 pulse-glow"
-            >
-              <span className="flex items-center gap-2 text-lg font-medium text-white">
-                {t('hero.contact')}
-              </span>
-            </a>
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <div className="glass rounded-3xl p-8 md:p-12 lg:p-16 backdrop-blur-xl bg-black/20 border border-white/10 shadow-2xl">
+            <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold mb-6 leading-tight font-display">
+                <span className="animated-text-gradient block">Voknil</span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl lg:text-3xl text-gray-200 mb-4 font-light">
+                {t('hero.subtitle')}
+              </p>
+              
+              <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed whitespace-pre-line">
+                {t('hero.description')}
+              </p>
+              
+              <div className="flex flex-wrap gap-4 justify-center items-center">
+                <a
+                  href="#about"
+                  className="group px-8 py-4 rounded-full glass hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50"
+                >
+                  <span className="flex items-center gap-2 text-lg font-medium">
+                    {t('hero.learnMore')}
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </span>
+                </a>
+                
+                <a
+                  href="#contact"
+                  className="group px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/50 pulse-glow"
+                >
+                  <span className="flex items-center gap-2 text-lg font-medium text-white">
+                    {t('hero.contact')}
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
