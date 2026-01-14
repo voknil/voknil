@@ -1,0 +1,43 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="vGradientReverse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background with gradient circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#vGradient)" opacity="0.2"/>
+  
+  <!-- Main V letter - bold and elegant -->
+  <path 
+    d="M 16 22 L 32 50 L 48 22" 
+    stroke="url(#vGradient)" 
+    stroke-width="7" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    fill="none"
+    filter="url(#glow)"
+  />
+  
+  <!-- Accent highlight for depth -->
+  <path 
+    d="M 16 22 L 32 50" 
+    stroke="url(#vGradientReverse)" 
+    stroke-width="4" 
+    stroke-linecap="round"
+    opacity="0.7"
+  />
+</svg>
