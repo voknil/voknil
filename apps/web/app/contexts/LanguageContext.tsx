@@ -20,13 +20,13 @@ const translationsMap = {
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('ru');
-  const [translations, setTranslations] = useState<any>(ruTranslations);
+  const [language, setLanguageState] = useState<Language>('en');
+  const [translations, setTranslations] = useState<any>(enTranslations);
 
   useEffect(() => {
     // Загружаем язык из localStorage при монтировании (только на клиенте)
     if (typeof window !== 'undefined') {
-      const savedLang = (localStorage.getItem('language') as Language) || 'ru';
+      const savedLang = (localStorage.getItem('language') as Language) || 'en';
       setLanguageState(savedLang);
       setTranslations(translationsMap[savedLang]);
     }
