@@ -33,6 +33,6 @@ export default {
     writeMe: "Write to me",
   },
   footer: {
-    copyright: "© {year} Voknil. Made with ☕",
+    copyright: "© {year} Voknil",
   },
 };
