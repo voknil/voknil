@@ -1,70 +1,24 @@
-# Voknil
+# Roman Voknil
 
-Монорепозиторий для проекта voknil на TypeScript.
+Full-stack developer focused on backend systems, product tooling, automation, and practical AI integrations.
 
-## Структура проекта
+I like building reliable internal tools and developer-facing systems: APIs, integrations, data workflows, Telegram bots, identity-aware services, and interfaces that turn rough operational work into usable software.
 
-```
-voknil/
-├── apps/
-│   └── web/          # Next.js веб-приложение (лендинг)
-├── packages/         # Общие пакеты (если понадобятся)
-└── README.md
-```
+## Current Focus
 
-## Технологии
+- React, TypeScript, backend systems, REST APIs
+- SQL-backed applications, integrations, internal tools
+- Practical LLM workflows and AI-assisted automation
+- React Native for cross-platform product work
+- Go/Python tooling around infrastructure, bots, and services
 
-- **Next.js 14** - React фреймворк с App Router
-- **TypeScript** - типизация
-- **Tailwind CSS** - стилизация
-- **Docker** - контейнеризация для деплоя
+## Selected Projects
 
-## Разработка
+- [yandex-iap](https://github.com/voknil/yandex-iap) - lightweight forward-auth identity-aware proxy for Yandex ID OAuth2.
+- [claude-usage-telegram-bot](https://github.com/voknil/claude-usage-telegram-bot) - Telegram status bot for Claude Code usage limits.
 
-### Установка зависимостей
+## Background
 
-```bash
-npm install
-```
+Most of my production experience comes from backend-heavy full-stack work: business-critical systems, APIs, integrations, internal products, legacy improvements, and long-lived codebases. I have worked across real estate, digital assessment, finance-related web projects, CRM tools, and automation-heavy product workflows.
 
-### Запуск в режиме разработки
-
-```bash
-npm run dev
-```
-
-Приложение будет доступно на [http://localhost:3000](http://localhost:3000)
-
-### Сборка для production
-
-```bash
-npm run build
-npm start
-```
-
-### Проверка типов
-
-```bash
-npm run type-check
-```
-
-## Деплой
-
-Проект настроен для деплоя через Dokploy.
-
-### Быстрый старт в Dokploy:
-
-1. **Applications** → **New Application** → **Git Repository**
-2. **Repository URL**: `https://github.com/voknil/voknil.git`
-3. **Branch**: `main`
-4. **Dockerfile Path**: `apps/web/Dockerfile`
-5. **Port**: `3000`
-6. Нажмите **Deploy**
-
-**Важно:** В Dokploy нужно установить **Build Context** в `.` (корень репозитория) для работы с монoreпо.
-
-См. `apps/web/Dockerfile` для конфигурации Docker.
-
-## Лицензия
-
-Приватный проект.
+I care about software that keeps working after the first release: clear boundaries, pragmatic architecture, observable behavior, and boring reliability where it matters.
