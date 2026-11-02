@@ -8,7 +8,7 @@ I like building reliable internal tools and developer-facing systems: APIs, inte
 
 - React, TypeScript, backend systems, REST APIs
 - SQL-backed applications, integrations, internal tools
-- Practical LLM workflows and AI-assisted automation
+- Practical LLM workflows, AI-assisted automation and MCP servers for agent tooling
 - React Native for cross-platform product work
 - Go/Python tooling around infrastructure, bots, and services
 
@@ -16,6 +16,7 @@ I like building reliable internal tools and developer-facing systems: APIs, inte
 
 - [yandex-iap](https://github.com/voknil/yandex-iap) - lightweight forward-auth identity-aware proxy for Yandex ID OAuth2.
 - [claude-usage-telegram-bot](https://github.com/voknil/claude-usage-telegram-bot) - Telegram status bot for Claude Code usage limits.
+- [telegram-mcp](https://github.com/voknil/telegram-mcp) - MCP server for a personal Telegram account (MTProto via Telethon): read and send messages, manage chats, list dialogs.
 
 ## Background
 
