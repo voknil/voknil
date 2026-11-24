@@ -15,7 +15,7 @@ I like building reliable internal tools and developer-facing systems: APIs, inte
 ## Selected Projects
 
 - [yandex-iap](https://github.com/voknil/yandex-iap) - lightweight forward-auth identity-aware proxy for Yandex ID OAuth2.
-- [claude-usage-telegram-bot](https://github.com/voknil/claude-usage-telegram-bot) - Telegram status bot for Claude Code usage limits.
+- [ai-usage-telegram-bot](https://github.com/voknil/ai-usage-telegram-bot) - Telegram status bot for AI usage limits.
 - [telegram-mcp](https://github.com/voknil/telegram-mcp) - MCP server for a personal Telegram account (MTProto via Telethon): read and send messages, manage chats, list dialogs.
 
 ## Background
